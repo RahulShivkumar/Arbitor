@@ -10,10 +10,10 @@ import Tkinter
 root = Tkinter.Tk()
 
 #Function called when button is clicked
-def fileUpload(textBox, message):
+def fileUpload(message):
     Tk().withdraw()
     path = askopenfilename()
-    downloadSubTitle(path, textBox, message)
+    downloadSubTitle(path, message)
 
 #Given hash function for The SubDB's API
 def hash(name):
@@ -26,11 +26,11 @@ def hash(name):
     return hashlib.md5(data).hexdigest()
 
 #Function that actually downloads the subtitle file and handles errors
-def downloadSubTitle(path, textBox, message):
+def downloadSubTitle(path, message):
     message.set('Searching.............')
     root.update_idletasks()
     #These are required extensions of movie files
-    extension = ['.avi', '.mp4', '.mkv', '.mpg', '.mpeg']
+    extension = ['.avi', '.mp4', '.mkv', '.mpg', '.mpeg', '.rmbv']
     completePath = path
     #Assume that the file is NOT in proper format
     properFormat = False
@@ -87,7 +87,7 @@ style.configure('TButton', relief = FLAT, padding = 6, background= '#ccc')
 
 #textBox and button both created with respective params
 textBox = Tkinter.Label(root, textvariable = message, bg = '#ccc')
-button = ttk.Button(root, text = 'Choose File', command = lambda:fileUpload(textBox, message), style = 'TButton')
+button = ttk.Button(root, text = 'Choose File', command = lambda:fileUpload(message), style = 'TButton')
 
 #textBox and button are both aligned
 textBox.place(relx = 0.5, rely = 0.3, anchor = CENTER)

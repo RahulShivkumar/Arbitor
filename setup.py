@@ -8,7 +8,7 @@ Usage:
 from setuptools import setup
 
 APP = ['Arbitor.py']
-DATA_FILES = []
+DATA_FILES = ['']
 OPTIONS = {'argv_emulation': True, 'iconfile': '/Users/Rahul/Kaggle/Arbitor/icon.icns'}
 
 setup(
